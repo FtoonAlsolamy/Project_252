@@ -1,44 +1,31 @@
 package animalcare;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import animalcare.Payment;
+import java.util.Scanner;
 
-/**
- *
- * @author ا
- */
+//Real Subject
 public class RealPayment implements Payment {
 
-    private String name;
     private String cardNumber;
 
-    public RealPayment(String name) {
-        this.name = name;
-        ValidateCashPayment(name);
-    }
-
-    public RealPayment(String name, String cardNumber) {
-        this.name = name;
-        this.cardNumber = cardNumber;
-        ValidateCreditPayment(name, cardNumber);
-    }
-
-    private void ValidateCashPayment(String Name) {
-        System.out.println("\nWaiting for payment verification for " + Name + " order...");
-
-    }
-
-    private void ValidateCreditPayment(String Name, String card) {
-        System.out.println("\nWaiting for payment verification for " + Name + " order, With the card number: " + card + "...");
+    public RealPayment() {
+        this.PaymentMethod();
     }
 
     @Override
-    public void PaymentApproval() {
-        System.out.println("\nYour payment has been approved and your order placed successfully");
+    public void PaymentMethod() {
+        Scanner user = new Scanner(System.in);
+        System.out.print("Please enter your credit card number: ");
+        String cardNumber = user.next();
+        System.out.print("Please enter CVV: ");
+        String CVV = user.next();
+        System.out.println("\nYour payment has been approved and your order placed successfully!"
+                         + "\nThank you for choosing AnimalCare\n");
     }
 
-    
+    @Override
+    public void UserInfo() {
+
+    }
+
 }

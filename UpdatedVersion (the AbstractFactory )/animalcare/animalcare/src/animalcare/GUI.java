@@ -1,5 +1,34 @@
 package animalcare;
 
+import animalcare.AboutAbstractFactory;
+import animalcare.AboutDecorator;
+import animalcare.AboutFactory;
+import animalcare.AboutProxy;
+import animalcare.AboutSingleton;
+import animalcare.AboutStrataegy;
+import animalcare.BlueRibbon;
+import animalcare.CatAccessories;
+import animalcare.CatBox;
+import animalcare.CatFood;
+import animalcare.CatMedicine;
+import animalcare.CatSupplies;
+import animalcare.CatToys;
+import animalcare.DogAccessories;
+import animalcare.DogBox;
+import animalcare.DogFood;
+import animalcare.DogMedicine;
+import animalcare.DogSupplies;
+import animalcare.DogToys;
+import animalcare.Gift;
+import animalcare.Payment;
+import animalcare.PaymentType;
+import animalcare.PinkRibbon;
+import animalcare.ProxyPayment;
+import animalcare.SuppliesAbstractFactory;
+import animalcare.SuppliesFactoryProducer;
+import animalcare.paymentFactory;
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,8 +65,8 @@ public class GUI extends javax.swing.JFrame {
         button6 = new java.awt.Button();
         jTextField1 = new javax.swing.JTextField();
         label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
+        StartButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("252PROJECT");
@@ -111,69 +140,84 @@ public class GUI extends javax.swing.JFrame {
         label1.setForeground(new java.awt.Color(0, 204, 204));
         label1.setText("click the buttons to show information about each design pattern");
 
-        label2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        label2.setForeground(new java.awt.Color(0, 204, 204));
-        label2.setText("The main class to run the program is \"animalcare\"");
-
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel1.setText("CPIT-252 Group Project");
+
+        StartButton.setText("Click To Start");
+        StartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(104, 104, 104)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(87, 87, 87)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(242, 242, 242)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(jLabel1)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(105, 105, 105)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(289, 289, 289))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
+                .addGap(24, 24, 24)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63)
+                .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,6 +269,11 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+        // TODO add your handling code here:
+        start();
+    }//GEN-LAST:event_StartButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,8 +308,205 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void start(){
+         Scanner user = new Scanner(System.in);
+
+        System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-");
+        System.out.println("\t\tWelcome to Animal Care Online Shop");
+        System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-\n");
+
+        System.out.println("\tPlease login with your acoount\n");
+        System.out.print("\tusername: ");
+        String username = user.next();
+        System.out.println("");
+        System.out.print("\tpassword: ");
+        int password = user.nextInt();
+
+        boolean flag = true;
+        String choice = "";
+        int userCategoryChoice = CategoryMenu(user);
+        do {
+
+            //-------------------------------------ABSTRACT FACTORY WITH STRATGEY --------------------------------------//
+//        calling the type of factory the user want to display (type of category of the supplies)
+            SuppliesAbstractFactory SuppliesFactoryType = SuppliesFactoryProducer.getFactorySupplies(userCategoryChoice);
+
+            if (userCategoryChoice == 1) {
+                CatSuppliesMenu();
+                String userSectionChoiceC = user.next();
+                CatSupplies cSupplies = SuppliesFactoryType.getCatSupplies(userSectionChoiceC);
+                cSupplies.displayCatSupplies();
+
+                //if- statments to call the sorting method that is inside the abstarct factory classes 
+                if (cSupplies instanceof CatFood) {
+                    CatFood cat = new CatFood();
+                    cat.displayCatFood();
+                } else if (cSupplies instanceof CatToys) {
+                    CatToys cattoy = new CatToys();
+                    cattoy.displayCatToys();
+                } else if (cSupplies instanceof CatMedicine) {
+                    CatMedicine catMedicine = new CatMedicine();
+                    catMedicine.displayCatMedicine();
+                } else if (cSupplies instanceof CatAccessories) {
+                    CatAccessories catAccessories = new CatAccessories();
+                    catAccessories.displayCatAccessories();
+
+                }
+                System.out.println("do you want to view another manu?? (yes/no)");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("yes")) {
+                    userCategoryChoice = CategoryMenu(user);
+
+                } else if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            } else if (userCategoryChoice == 2) {
+
+                DogSuppliesMenu();
+                String userSectionChoiceD = user.next();
+                DogSupplies dSupplies = SuppliesFactoryType.getDogSupplies(userSectionChoiceD);
+                dSupplies.displayDogSupplies();
+
+                //if- statments to call the sorting method that is inside the abstarct factory classes 
+                if (dSupplies instanceof DogFood) {
+                    DogFood dog = new DogFood();
+                    dog.displayDogFood();
+                } else if (dSupplies instanceof DogToys) {
+                    DogToys toy = new DogToys();
+                    toy.displayDogToys();
+                } else if (dSupplies instanceof DogMedicine) {
+                    DogMedicine dogMedicine = new DogMedicine();
+                    dogMedicine.displaydogMedicine();
+                } else if (dSupplies instanceof DogAccessories) {
+                    DogAccessories dogAccessories = new DogAccessories();
+                    dogAccessories.displayDogAccessories();
+
+                }
+                System.out.println("do you want to view another manu?? (yes/no)");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("yes")) {
+                    userCategoryChoice = CategoryMenu(user);
+
+                } else if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            }
+        } while (flag);
+
+        //-------------------------------------DECORATOR--------------------------------------//
+        System.out.println(" Do you want to add gift boxes? (yes or no ) ");
+        String gift = user.next();
+        if (gift.equalsIgnoreCase("yes")) {
+            System.out.println(" Select which gift box you want? "
+                    + "1- Dog box "
+                    + "2- Cat box ");
+            int giftSelection = user.nextInt();
+            if (giftSelection == 1) {
+                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                String giftRibbon = user.next();
+                if (giftRibbon.equalsIgnoreCase("yes")) {
+                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    int giftRibbonColor = user.nextInt();
+
+                    if (giftRibbonColor == 1) {
+                        Gift customerG1 = new BlueRibbon(new DogBox());
+                        System.out.println(customerG1.GiftType());
+                    } else if (giftRibbonColor == 2) {
+                        Gift customerG1 = new PinkRibbon(new DogBox());
+                        System.out.println(customerG1.GiftType());
+                    }
+                }
+
+            } else {
+
+                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                String giftRibbon = user.next();
+                if (giftRibbon.equalsIgnoreCase("yes")) {
+                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    int giftRibbonColor = user.nextInt();
+
+                    if (giftRibbonColor == 1) {
+                        Gift customerG1 = new BlueRibbon(new CatBox());
+                        System.out.println(customerG1.GiftType());
+                    } else if (giftRibbonColor == 2) {
+                        Gift customerG1 = new PinkRibbon(new CatBox());
+                        System.out.println(customerG1.GiftType());
+                    }
+                }
+            }
+
+        } else {
+
+        }
+//
+//          //-------------------------------------FACTORY & PROXY--------------------------------------//
+        System.out.println("------------------check out------------------");
+
+        System.out.println("Choose your payment method :"
+                + " 1-Credit "
+                + " 2-Cash "
+                + " 3-Qitaf ");
+
+        int payment = user.nextInt();
+        paymentFactory anyType = new paymentFactory();
+        if (payment == 1) {
+            //declaring the paying method to the user 
+            PaymentType process2 = anyType.userPay("credit");
+            process2.pay();
+            // checking the payment method (making sure of the credit card info)            
+            Payment paymentChecking = new ProxyPayment(payment);
+
+        } else if (payment == 2) {
+            //declaring the paying method to the user 
+            PaymentType process3 = anyType.userPay("cash");
+            process3.pay();
+            // checking the payment method               
+            Payment paymentChecking = new ProxyPayment(payment);
+
+        } else if (payment == 3) {
+            //declaring the paying method to the user 
+            PaymentType process1 = anyType.userPay("qitaf");
+            process1.pay();
+            // checking the payment method (making sure of the qitaf info)            
+            Payment paymentChecking = new ProxyPayment(payment);
+
+        } else {
+            System.out.println("please select again");
+        }
+//
+
+//  //-------------------------------------SINGLETON--------------------------------------//
+        //  CallCenterSingleton number = CallCenterSingleton.getInstance();
+        //  number.showMessage();
+    }
+
+    //methods to display the menus
+    public static int CategoryMenu(Scanner s) {
+        System.out.println("please select the type of category to view it's menue (write the number of the category):\n"
+                + "1- Cat Supplies\n2- Dog Supplies ");
+        s = new Scanner(System.in);
+        int num = s.nextInt();
+        return num;
+
+    }
+
+    public static void CatSuppliesMenu() {
+        System.out.println("\t-CAT SUPPLIES-\n");
+        System.out.println("please select the type of section you want to view (write the name of the section):\n"
+                + "- Food\n- Accessories\n- Medicine\n- Toys ");
+    }
+
+    public static void DogSuppliesMenu() {
+        System.out.println("\t-DOG SUPPLIES-\n");
+        System.out.println("please select the type of section you want to view (write the name of the section):\n"
+                + "- Food\n- Accessories\n- Medicine\n- Toys ");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton StartButton;
     private java.awt.Button button1;
     private java.awt.Button button2;
     private java.awt.Button button3;
@@ -270,7 +516,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     private java.awt.Label label1;
-    private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
 
    

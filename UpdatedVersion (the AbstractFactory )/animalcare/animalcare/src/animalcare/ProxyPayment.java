@@ -1,41 +1,44 @@
 package animalcare;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.Scanner;
 
-/**
- *
- * @author ا
- */
+//Proxy
 public class ProxyPayment implements Payment {
 
     private String name;
-    private String cardNumber;
+    private int phone;
+    private int cardNumber;
+    private int paymentMethod;
     private RealPayment realPayment;
 
-    public ProxyPayment(String name) {
-        this.name = name;
-    }
-
-    public ProxyPayment(String name, String cardNumber) {
-        this.name = name;
-        this.cardNumber = cardNumber;
+    public ProxyPayment(int paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        PaymentMethod();
     }
 
     @Override
-    public void PaymentApproval() {
-        if (realPayment == null) {
-            if (cardNumber == null) {
-                realPayment = new RealPayment(name);
-            } else {
-                realPayment = new RealPayment(name, cardNumber);
-            }
-        }
-        realPayment.PaymentApproval();
+    public void UserInfo() {
+        Scanner user = new Scanner(System.in);
+        System.out.print("\nPlease enter your name: ");
+        name = user.nextLine();
+        System.out.print("Please enter your phone number: ");
+        phone = user.nextInt();
     }
 
-    
+    @Override
+    public void PaymentMethod() {
+
+        UserInfo();
+
+        if (paymentMethod == 1 || paymentMethod == 3) {
+            //getting the identity of the real credit of qitaf info 
+            realPayment = new RealPayment();
+        } 
+        else if (paymentMethod == 2) {
+            System.out.println("\nYour order placed successfully!"
+                             + "\nThank you for choosing AnimalCare\n");
+        }
+
+    }
+
 }
