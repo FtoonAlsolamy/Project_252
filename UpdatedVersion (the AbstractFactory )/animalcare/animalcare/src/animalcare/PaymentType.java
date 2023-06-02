@@ -7,7 +7,7 @@ package animalcare;
 
 /**
  *
- * @author toota mohammed
+ * 
  */
 public interface PaymentType {
     public void pay();
