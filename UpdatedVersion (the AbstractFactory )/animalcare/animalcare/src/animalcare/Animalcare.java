@@ -51,11 +51,7 @@ public class Animalcare {
                     catAccessories.displayCatAccessories();
 
                 }
-                System.out.println("--ADD TO CART-- (write skip if you dont):");
-                choice=user.next();
-                if(choice.equalsIgnoreCase("skip")){
-                    continue;
-                }else
+                
                    
                 System.out.println("do you want to view another manu?? (yes/no)");
                 choice = user.next();
@@ -183,9 +179,9 @@ public class Animalcare {
         }
 //
 
-//  //-------------------------------------SINGLETON--------------------------------------//
-        //  CallCenterSingleton number = CallCenterSingleton.getInstance();
-        //  number.showMessage();
+  //-------------------------------------SINGLETON--------------------------------------//
+          CallCenterSingleton number = CallCenterSingleton.getInstance();
+          number.showMessage();
     }
 
     //methods to display the menus

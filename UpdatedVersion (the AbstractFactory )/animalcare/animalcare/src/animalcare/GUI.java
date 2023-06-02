@@ -272,6 +272,7 @@ public class GUI extends javax.swing.JFrame {
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         // TODO add your handling code here:
         start();
+        
     }//GEN-LAST:event_StartButtonActionPerformed
 
     /**
@@ -353,13 +354,14 @@ public class GUI extends javax.swing.JFrame {
                     catAccessories.displayCatAccessories();
 
                 }
+
                 System.out.println("do you want to view another manu?? (yes/no)");
                 choice = user.next();
                 if (choice.equalsIgnoreCase("yes")) {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
-                    flag = false;
+                    break;
                 }
 
             } else if (userCategoryChoice == 2) {
@@ -390,7 +392,7 @@ public class GUI extends javax.swing.JFrame {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
-                    flag = false;
+                    break;
 
                 }
 
@@ -479,9 +481,10 @@ public class GUI extends javax.swing.JFrame {
         }
 //
 
-//  //-------------------------------------SINGLETON--------------------------------------//
-        //  CallCenterSingleton number = CallCenterSingleton.getInstance();
-        //  number.showMessage();
+        //-------------------------------------SINGLETON--------------------------------------//
+        CallCenterSingleton number = CallCenterSingleton.getInstance();
+        number.showMessage();
+
     }
 
     //methods to display the menus
@@ -505,6 +508,7 @@ public class GUI extends javax.swing.JFrame {
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton StartButton;
