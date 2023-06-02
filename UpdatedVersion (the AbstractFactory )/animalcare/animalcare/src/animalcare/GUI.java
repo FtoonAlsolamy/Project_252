@@ -27,14 +27,14 @@ import animalcare.ProxyPayment;
 import animalcare.SuppliesAbstractFactory;
 import animalcare.SuppliesFactoryProducer;
 import animalcare.paymentFactory;
-import java.util.Scanner;
+import java.util.*;
+import java.lang.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author ا
@@ -225,42 +225,42 @@ public class GUI extends javax.swing.JFrame {
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-         AboutFactory n=new AboutFactory();
+        AboutFactory n = new AboutFactory();
         n.setVisible(true);
-        
+
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
-         AboutSingleton r=new AboutSingleton();
+        AboutSingleton r = new AboutSingleton();
         r.setVisible(true);
-        
+
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         // TODO add your handling code here:
-        AboutDecorator r1=new AboutDecorator();
+        AboutDecorator r1 = new AboutDecorator();
         r1.setVisible(true);
-        
+
     }//GEN-LAST:event_button5ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         // TODO add your handling code here:
-        AboutStrataegy f=new AboutStrataegy();
+        AboutStrataegy f = new AboutStrataegy();
         f.setVisible(true);
-        
+
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-         AboutProxy f1=new AboutProxy();
+        AboutProxy f1 = new AboutProxy();
         f1.setVisible(true);
-        
+
     }//GEN-LAST:event_button6ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-         AboutAbstractFactory x =new AboutAbstractFactory();
+        AboutAbstractFactory x = new AboutAbstractFactory();
         x.setVisible(true);
 //        this.setVisible(false);
     }//GEN-LAST:event_button4ActionPerformed
@@ -308,9 +308,9 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void start(){
-         Scanner user = new Scanner(System.in);
+
+    public void start() {
+        Scanner user = new Scanner(System.in);
 
         System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-");
         System.out.println("\t\tWelcome to Animal Care Online Shop");
@@ -391,6 +391,7 @@ public class GUI extends javax.swing.JFrame {
 
                 } else if (choice.equalsIgnoreCase("no")) {
                     flag = false;
+
                 }
 
             }
@@ -518,6 +519,4 @@ public class GUI extends javax.swing.JFrame {
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 
-   
 }
-

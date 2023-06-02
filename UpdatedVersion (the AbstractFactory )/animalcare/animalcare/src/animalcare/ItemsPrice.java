@@ -6,25 +6,25 @@
 package animalcare;
 
 public class ItemsPrice {
-    
+
     public int price;
     public String desc;
     public String sale;
-    
-    public ItemsPrice( int price,String desc ,String sale){
-		
-		this.price=price;
-                this.desc = desc;
-                this.sale = sale;
-	}
 
+    public ItemsPrice(int price, String desc, String sale) {
 
-	public int getPrice() {
-		return price;
-        }
-        public void setPrice(int price) {
         this.price = price;
-        }
+        this.desc = desc;
+        this.sale = sale;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public String getDesc() {
         return desc;
@@ -36,9 +36,7 @@ public class ItemsPrice {
 
     @Override
     public String toString() {
-       return  desc + price + " $ " + sale + "\n";
+        return desc + price + " $ " + sale + "\n";
     }
-    
-    
-    
+
 }
