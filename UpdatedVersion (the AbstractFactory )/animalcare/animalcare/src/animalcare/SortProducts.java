@@ -111,21 +111,3 @@ class Discounted implements SortProducts{
     }
 }
         
-        
-        
-        
-        
-        
-        
-        
-        
-//          List<ItemsPrice> onSaleItems = new ArrayList<>();
-//        for (ItemsPrice item : sort) {
-//            if (item.sale.equalsIgnoreCase("OnSale")) {
-//                onSaleItems.add(item);
-//            }
-//        }
-//        return onSaleItems.toArray(new ItemsPrice[0]);
-    }
-    
-}
