@@ -31,6 +31,9 @@ public class DogToys  extends ItemsPrice implements DogSupplies{
     @Override
     public void displayDogSupplies(){
         System.out.println("--DOG TOYS--\n");
+        for (ItemsPrice item : getDogToys()) {
+            System.out.println(item);
+        }
         System.out.println("--ITEM ON SALE--\n");
         ItemsPrice[] items = getDogToys();
         Discounted discounted = new Discounted();

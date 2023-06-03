@@ -30,11 +30,15 @@ public class CatAccessories extends ItemsPrice implements CatSupplies{
     @Override 
     public void displayCatSupplies(){
         System.out.println("--CAT ACCESSORIES--\n");
+        //displaying the menu 
+         for (ItemsPrice item : getCatAccessories()) {
+            System.out.println(item);
+        }
         System.out.println("--ITEM ON SALE--\n");
         ItemsPrice[] items = getCatAccessories();
         Discounted discounted = new Discounted();
         ItemsPrice[] onSaleItems = discounted.Sort(items);
-        
+        //displaying the sales manu (default)
         for (ItemsPrice item : onSaleItems) {
             System.out.println(item);
         }

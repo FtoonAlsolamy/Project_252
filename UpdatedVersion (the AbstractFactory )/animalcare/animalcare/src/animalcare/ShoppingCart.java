@@ -13,20 +13,22 @@ public class ShoppingCart {
       List<String> itemsDes;
 	
 	public ShoppingCart(){
-		this.items=new ArrayList<ItemsPrice>();
+		
                 this.itemsDes=new ArrayList<String>();
 	}
 	
-	public void addItem(ItemsPrice item,String itemsDes){
-		this.items.add(item);
+	public void addItem(String itemsDes){
+		;
                 this.itemsDes.add(itemsDes);
-                System.out.println("item has been added to your cart succssfully ");
+                System.out.println("");
+                System.out.println("@item has been added to your cart succssfully@\n ");
 	}
         
-        public void removeItem(ItemsPrice item,String itemsDes){
-		this.items.remove(item);
+        public void removeItem(String itemsDes){
+		
                 this.itemsDes.remove(itemsDes);
-                 System.out.println("item has been removed from your cart succssfully ");
+                System.out.println("");
+                 System.out.println("@item has been removed from your cart succssfully@\n ");
 	}
 	
 	public int calculateTotal(){
@@ -42,12 +44,13 @@ public class ShoppingCart {
 }
         public void displayInvoice(){
             System.out.println("---RECIPT---");
-            if(!this.itemsDes.isEmpty()){
-            for(int i=0;i<this.itemsDes.size();i++){
+//            if(this.itemsDes.isEmpty()){
+//           System.out.println("nothing is in the cart ");
+//            }else
+                 for(int i=0;i<this.itemsDes.size();i++){
                 System.out.println("\n"+this.itemsDes.get(i)+"\n");
             }
-            }else
-                System.out.println("nothing is in the cart ");
-            System.out.println("Total Amount is: "+calculateTotal());
+                
+            //System.out.println("Total Amount is: "+calculateTotal());
         }
 }

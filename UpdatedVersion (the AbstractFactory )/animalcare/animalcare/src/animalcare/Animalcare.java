@@ -8,7 +8,7 @@ import java.util.*;
 public class Animalcare {
 
     public static void main(String[] args) {
-          Scanner user = new Scanner(System.in);
+        Scanner user = new Scanner(System.in);
 
         System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-");
         System.out.println("\t\tWelcome to Animal Care Online Shop");
@@ -51,14 +51,14 @@ public class Animalcare {
                     catAccessories.displayCatAccessories();
 
                 }
-                
-                   
+
                 System.out.println("do you want to view another manu?? (yes/no)");
                 choice = user.next();
                 if (choice.equalsIgnoreCase("yes")) {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
+                    addToShoppingCart(user);
                     flag = false;
                 }
 
@@ -90,6 +90,7 @@ public class Animalcare {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
+                    addToShoppingCart(user);
                     flag = false;
 
                 }
@@ -98,18 +99,19 @@ public class Animalcare {
         } while (flag);
 
         //-------------------------------------DECORATOR--------------------------------------//
-        System.out.println(" Do you want to add gift boxes? (yes or no ) ");
+        System.out.println(" Do you want to add a gift boxes? (yes/no) ");
         String gift = user.next();
         if (gift.equalsIgnoreCase("yes")) {
             System.out.println(" Select which gift box you want? "
                     + "1- Dog box "
                     + "2- Cat box ");
             int giftSelection = user.nextInt();
+
             if (giftSelection == 1) {
-                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                System.out.println(" Do you want to add a ribbon ? (yes/no) ");
                 String giftRibbon = user.next();
                 if (giftRibbon.equalsIgnoreCase("yes")) {
-                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    System.out.println(" what color do you want? (1-blue/2-pink) ");
                     int giftRibbonColor = user.nextInt();
 
                     if (giftRibbonColor == 1) {
@@ -123,10 +125,10 @@ public class Animalcare {
 
             } else {
 
-                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                System.out.println(" Do you want to add ribbon ? (yes/ no ) ");
                 String giftRibbon = user.next();
                 if (giftRibbon.equalsIgnoreCase("yes")) {
-                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    System.out.println(" what color you want? (1-blue/ 2-pink) ");
                     int giftRibbonColor = user.nextInt();
 
                     if (giftRibbonColor == 1) {
@@ -139,9 +141,10 @@ public class Animalcare {
                 }
             }
 
-        } else {
-
         }
+        ShoppingCart DisplayItemsInCart = new ShoppingCart();
+        DisplayItemsInCart.displayInvoice();
+
 //
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
         System.out.println("------------------check out------------------");
@@ -179,9 +182,9 @@ public class Animalcare {
         }
 //
 
-  //-------------------------------------SINGLETON--------------------------------------//
-          CallCenterSingleton number = CallCenterSingleton.getInstance();
-          number.showMessage();
+        //-------------------------------------SINGLETON--------------------------------------//
+        CallCenterSingleton number = CallCenterSingleton.getInstance();
+        number.showMessage();
     }
 
     //methods to display the menus
@@ -205,6 +208,30 @@ public class Animalcare {
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
     }
-    
-   
+
+    public static void addToShoppingCart(Scanner user) {
+        boolean flag = true;
+        ShoppingCart items=new ShoppingCart();
+        
+        System.out.println("-------------------");
+        System.out.println("Do you want to add itmes into the cart?? (yes/no)");
+        String choice = user.next();
+        System.out.println("-------------------");
+        if (choice.equalsIgnoreCase("yes")) {
+            do {
+                System.out.println("wrtie the item you wish to add to cart: ");
+                String itemName=user.next();
+                items.addItem(itemName);
+
+                System.out.println("do you want to add more items to the cart?? (yes/no):");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            } while (flag);
+
+        }
+
+    }
 }

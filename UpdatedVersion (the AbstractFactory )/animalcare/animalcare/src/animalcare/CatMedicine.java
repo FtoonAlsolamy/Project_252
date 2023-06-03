@@ -30,6 +30,9 @@ public class CatMedicine extends ItemsPrice implements CatSupplies {
     @Override
     public void displayCatSupplies() {
         System.out.println("--CAT MEDICINE--\n");
+         for (ItemsPrice item : getCatMedicine()) {
+            System.out.println(item);
+        }
         System.out.println("--ITEM ON SALE--\n");
         ItemsPrice[] items = getCatMedicine();
         Discounted discounted = new Discounted();
