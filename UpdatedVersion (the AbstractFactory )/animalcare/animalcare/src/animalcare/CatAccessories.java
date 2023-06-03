@@ -16,25 +16,30 @@ public class CatAccessories extends ItemsPrice implements CatSupplies{
     public CatAccessories() {
         super(0, "", "");
     }
-     public ItemsPrice [] getCatAccessoriesDiscounted(){
+     public ItemsPrice [] getCatAccessories(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+         
             Items[0] = new ItemsPrice(10, "Leashes", "OnSale");
             Items[1] = new ItemsPrice(25, "Colorful Bowls", "NoSale");
             Items[2] = new ItemsPrice(45, "Collar with Tag", "OnSale");
             Items[3] = new ItemsPrice(7, " Brushes", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+        
+             return Items;
     }
     
     @Override 
     public void displayCatSupplies(){
-               System.out.println("--CAT ACCESSORIES--\n");
-               ItemsPrice[] Items = getCatAccessoriesDiscounted();
-                 for (ItemsPrice item : Items) {
-                 System.out.println(item);
+        System.out.println("--CAT ACCESSORIES--\n");
+        System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getCatAccessories();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+        
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
     }
-    }
+    
     
     public void displayCatAccessories(){
         Scanner user = new Scanner(System.in);

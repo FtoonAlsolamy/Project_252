@@ -17,24 +17,28 @@ public class DogToys  extends ItemsPrice implements DogSupplies{
         super(0, "", "");
         }
     
-    public ItemsPrice [] getDogToysDiscounted(){
+    public ItemsPrice [] getDogToys(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+          
             Items[0] = new ItemsPrice(10, "Colorful Balls", "OnSale");
             Items[1] = new ItemsPrice(9, "Bones", "NoSale");
             Items[2] = new ItemsPrice(15, "squeaky toys", "OnSale");
             Items[3] = new ItemsPrice(12, "plush toys", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+   
+             return Items;
     }
     
     @Override
     public void displayDogSupplies(){
         System.out.println("--DOG TOYS--\n");
-         ItemsPrice[] Items = getDogToysDiscounted();
-        for (ItemsPrice item : Items) {
-        System.out.println(item);
-    }
+        System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getDogToys();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+        
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
     }
     
     public void displayDogToys(){

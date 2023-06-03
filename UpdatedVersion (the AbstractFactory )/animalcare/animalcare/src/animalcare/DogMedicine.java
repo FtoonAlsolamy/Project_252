@@ -18,22 +18,26 @@ public class DogMedicine extends ItemsPrice implements DogSupplies{
     }
      public ItemsPrice [] getDogMedicine(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+          
             Items[0] = new ItemsPrice(20, "Tramadol", "OnSale");
             Items[1] = new ItemsPrice(25, "Meloxicam", "NoSale");
             Items[2] = new ItemsPrice(45, "Famotidine", "OnSale");
             Items[3] = new ItemsPrice(60, "Nexgard", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+          
+             return Items;
     }
     
     @Override
     public void displayDogSupplies(){
          System.out.println("--DOG MEDICINE--\n");
-            ItemsPrice[] Items = getDogMedicine();
-          for (ItemsPrice item : Items) {
-        System.out.println(item);
-    }
+         System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getDogMedicine();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
     }
     public void displaydogMedicine(){
         Scanner user = new Scanner(System.in);

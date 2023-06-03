@@ -18,22 +18,26 @@ public class CatMedicine extends ItemsPrice implements CatSupplies {
     }
     public ItemsPrice [] getCatMedicine(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+     
             Items[0] = new ItemsPrice(60, "Amoxicillin", "OnSale");
             Items[1] = new ItemsPrice(59,"Metronidazole", "NoSale");
             Items[2] = new ItemsPrice(77, "Methimazole", "OnSale");
             Items[3] = new ItemsPrice(150, "Pimobendan", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+      
+             return Items;
     } 
 
     @Override
     public void displayCatSupplies() {
         System.out.println("--CAT MEDICINE--\n");
-         ItemsPrice[] Items = getCatMedicine();
-         for (ItemsPrice item : Items) {
-        System.out.println(item);
-    }
+        System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getCatMedicine();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+        
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
  
     }
     public void displayCatMedicine(){

@@ -5,7 +5,10 @@
  */
 package animalcare;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import static java.util.Collections.list;
+import java.util.List;
 
 public interface SortProducts {
     public ItemsPrice[] Sort(ItemsPrice[] sort);
@@ -41,7 +44,7 @@ class LowestPrice implements SortProducts{
              }
          }
          
-      System.out.println(sort[i].desc + " price: " + sort[i].price + " ");    
+      System.out.println(sort[i].desc + " price: " + sort[i].price + "$");    
  
          
      } return newlist;
@@ -81,7 +84,7 @@ class HighestPrice implements SortProducts{
              }
          }
          
-      System.out.println(sort[i].desc + " price: " + sort[i].price + " ");    
+      System.out.println(sort[i].desc + " price: " + sort[i].price + "$");    
  
          
      } return newlist;
@@ -94,13 +97,35 @@ class HighestPrice implements SortProducts{
 class Discounted implements SortProducts{
 
     @Override
-    public ItemsPrice[] Sort(ItemsPrice[] sort){
+    public ItemsPrice[] Sort(ItemsPrice[] sort) {
+        
+            ItemsPrice[] onSaleItems = new ItemsPrice[sort.length];
+    int index = 0;
     for (ItemsPrice item : sort) {
-        if (item.sale.equalsIgnoreCase("On Sale")) {
-            System.out.println(item.desc + " is On Sale, Price: " + item.price);
+        if (item.sale.equalsIgnoreCase("OnSale")) {
+            onSaleItems[index] = item;
+            index++;
         }
     }
-    return sort;
+    return Arrays.copyOf(onSaleItems, index);
+    }
 }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//          List<ItemsPrice> onSaleItems = new ArrayList<>();
+//        for (ItemsPrice item : sort) {
+//            if (item.sale.equalsIgnoreCase("OnSale")) {
+//                onSaleItems.add(item);
+//            }
+//        }
+//        return onSaleItems.toArray(new ItemsPrice[0]);
+    }
     
 }

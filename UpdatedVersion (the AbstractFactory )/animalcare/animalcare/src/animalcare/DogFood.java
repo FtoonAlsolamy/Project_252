@@ -18,22 +18,27 @@ public class DogFood extends ItemsPrice implements DogSupplies{
     }
          public ItemsPrice [] getDogFood(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+         
             Items[0] = new ItemsPrice(20, "GimDog (chicken and lamb dry food)", "OnSale");
             Items[1] = new ItemsPrice(25, "Nutram for puppies (dry food)", "NoSale");
             Items[2] = new ItemsPrice(45, "Burgess (chicken dry food)", "OnSale");
             Items[3] = new ItemsPrice(60, "Scheser (Tuna wet food)", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+   
+             return Items;
     } 
     
     @Override
     public void displayDogSupplies(){
-               System.out.println("--DOG FOOD--\n");
-                  ItemsPrice[] Items = getDogFood();
-              for (ItemsPrice item : Items) {
-        System.out.println(item);
-    }
+        System.out.println("--DOG FOOD--\n");
+
+        System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getDogFood();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
  
     }
     

@@ -18,22 +18,26 @@ public class CatFood extends ItemsPrice  implements CatSupplies{
     }
      public ItemsPrice [] getCatFood(){
             ItemsPrice[] Items = new ItemsPrice[4];
-            SortProducts sortt = new Discounted();
+          
             Items[0] = new ItemsPrice(5, "GimCat (chicken and carrot flavor wet food)", "OnSale");
             Items[1] = new ItemsPrice(65, "Nutram for kiitens (dry food)", "NoSale");
             Items[2] = new ItemsPrice(29, "Burgess (scottish salmon dry food)", "OnSale");
             Items[3] = new ItemsPrice(10, "Vitakraft (fish flavor wet food)", "NoSale");
-            ItemsPrice[] discounted =sortt.Sort(Items);
-             return discounted;
+           
+             return Items;
     } 
     
     @Override
     public void displayCatSupplies(){
          System.out.println("--CAT FOOD--\n");
-         ItemsPrice[] Items = getCatFood();
-        for (ItemsPrice item : Items) {
-        System.out.println(item);
-    }
+        System.out.println("--ITEM ON SALE--\n");
+        ItemsPrice[] items = getCatFood();
+        Discounted discounted = new Discounted();
+        ItemsPrice[] onSaleItems = discounted.Sort(items);
+        
+        for (ItemsPrice item : onSaleItems) {
+            System.out.println(item);
+        }
  
     }
     public void displayCatFood(){

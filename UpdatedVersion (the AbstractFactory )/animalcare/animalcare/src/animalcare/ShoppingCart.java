@@ -10,22 +10,22 @@ import java.util.List;
 
 public class ShoppingCart {
       List<ItemsPrice> items;
-      List<String> itemsName;
+      List<String> itemsDes;
 	
 	public ShoppingCart(){
 		this.items=new ArrayList<ItemsPrice>();
-                this.itemsName=new ArrayList<String>();
+                this.itemsDes=new ArrayList<String>();
 	}
 	
-	public void addItem(ItemsPrice item,String itemName){
+	public void addItem(ItemsPrice item,String itemsDes){
 		this.items.add(item);
-                this.itemsName.add(itemName);
+                this.itemsDes.add(itemsDes);
                 System.out.println("item has been added to your cart succssfully ");
 	}
         
-        public void removeItem(ItemsPrice item,String itemName){
+        public void removeItem(ItemsPrice item,String itemsDes){
 		this.items.remove(item);
-                this.itemsName.remove(itemName);
+                this.itemsDes.remove(itemsDes);
                  System.out.println("item has been removed from your cart succssfully ");
 	}
 	
@@ -42,9 +42,9 @@ public class ShoppingCart {
 }
         public void displayInvoice(){
             System.out.println("---RECIPT---");
-            if(!this.itemsName.isEmpty()){
-            for(int i=0;i<this.itemsName.size();i++){
-                System.out.println("\n"+this.itemsName.get(i)+"\n");
+            if(!this.itemsDes.isEmpty()){
+            for(int i=0;i<this.itemsDes.size();i++){
+                System.out.println("\n"+this.itemsDes.get(i)+"\n");
             }
             }else
                 System.out.println("nothing is in the cart ");
