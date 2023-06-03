@@ -28,7 +28,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="label1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -44,15 +43,13 @@
               <Component id="label1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="label2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="label3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="label4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="label5" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="label6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,17 +77,6 @@
         <Property name="text" type="java.lang.String" value="Classes name of Factory DP:"/>
       </Properties>
     </Component>
-    <Component class="java.awt.Label" name="label3">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="1- FactoryDP_payment (Main class)"/>
-      </Properties>
-    </Component>
     <Component class="java.awt.Label" name="label4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -99,7 +85,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="2- PaymentFactory (factory class)"/>
+        <Property name="text" type="java.lang.String" value="1- PaymentFactory (factory class)"/>
       </Properties>
     </Component>
     <Component class="java.awt.Label" name="label5">
@@ -110,7 +96,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="3- PaymentType (Interface class)"/>
+        <Property name="text" type="java.lang.String" value="2- PaymentType (Interface class)"/>
       </Properties>
     </Component>
     <Component class="java.awt.Label" name="label6">
@@ -121,7 +107,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="4- PayCash - PayQitaf - PayCredit (subclasses)"/>
+        <Property name="text" type="java.lang.String" value="3- PayCash - PayQitaf - PayCredit (subclasses)"/>
       </Properties>
     </Component>
   </SubComponents>
