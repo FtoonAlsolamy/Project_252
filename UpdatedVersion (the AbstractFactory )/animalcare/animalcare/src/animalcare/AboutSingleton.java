@@ -43,7 +43,7 @@ public class AboutSingleton extends javax.swing.JFrame {
 
         label3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         label3.setForeground(new java.awt.Color(102, 102, 102));
-        label3.setText("1-CallCenterSingleton(Singleton)");
+        label3.setText("1-CustomerService (Singleton)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
