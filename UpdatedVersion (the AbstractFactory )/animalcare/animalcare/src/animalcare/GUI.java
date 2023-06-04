@@ -7,6 +7,7 @@ import animalcare.AboutProxy;
 import animalcare.AboutSingleton;
 import animalcare.AboutStrataegy;
 import static animalcare.Animalcare.cart;
+import static animalcare.Animalcare.customerService;
 import animalcare.BlueRibbon;
 import animalcare.CatAccessories;
 import animalcare.CatBox;
@@ -312,7 +313,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void start() {
-         Scanner user = new Scanner(System.in);
+              Scanner user = new Scanner(System.in);
 
         System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-");
         System.out.println("\t\tWelcome to Animal Care Online Shop");
@@ -333,7 +334,7 @@ public class GUI extends javax.swing.JFrame {
             //-------------------------------------ABSTRACT FACTORY WITH STRATGEY --------------------------------------//
 //        calling the type of factory the user want to display (type of category of the supplies)
             SuppliesAbstractFactory SuppliesFactoryType = SuppliesFactoryProducer.getFactorySupplies(userCategoryChoice);
-
+               
             if (userCategoryChoice == 1) {
                 CatSuppliesMenu();
                 String userSectionChoiceC = user.next();
@@ -363,6 +364,7 @@ public class GUI extends javax.swing.JFrame {
 
                 } else if (choice.equalsIgnoreCase("no")) {
                     addToShoppingCart(user);
+                    removeFromShoppingCart(user);
                     flag = false;
                 }
 
@@ -395,6 +397,7 @@ public class GUI extends javax.swing.JFrame {
 
                 } else if (choice.equalsIgnoreCase("no")) {
                     addToShoppingCart(user);
+                    removeFromShoppingCart(user);
                     flag = false;
 
                 }
@@ -493,17 +496,19 @@ public class GUI extends javax.swing.JFrame {
                 System.out.println("please select again");
             }
 
-           
+//
         }
-        //-------------------------------------SINGLETON--------------------------------------//
-        CustomerService number = CustomerService.getInstance();
-        number.showMessage();
+        
+       // after the payment operation we want to display a message to the cutomer
+       // using static object thet we initialize it
+        customerService.showMessage();
     }
 
     //methods to display the menus
     public static int CategoryMenu(Scanner s) {
         System.out.println("please select the type of category to view it's menue (write the number of the category):\n"
                 + "1- Cat Supplies\n2- Dog Supplies ");
+              customerService.showMessage();
         s = new Scanner(System.in);
         int num = s.nextInt();
         return num;
@@ -514,12 +519,14 @@ public class GUI extends javax.swing.JFrame {
         System.out.println("\t-CAT SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
+                  customerService.showMessage();
     }
 
     public static void DogSuppliesMenu() {
         System.out.println("\t-DOG SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
+               customerService.showMessage();
     }
 
     public static void addToShoppingCart(Scanner user) {
@@ -548,6 +555,33 @@ public class GUI extends javax.swing.JFrame {
             System.out.println("");
         }
 
+    }
+    public static void removeFromShoppingCart(Scanner user) {
+        boolean flag = true;
+
+        System.out.println("-------------------");
+        System.out.println("Do you want to remove itmes from the cart?? (yes/no)");
+        String choice = user.next();
+        System.out.println("-------------------");
+        if (choice.equalsIgnoreCase("yes")) {
+            do {
+                System.out.println("wrtie the item you want to remove it: ");
+                String itemName = user.next();
+                cart.remove(itemName);
+                System.out.println("item has been removed from your cart succssfully :)");
+
+                System.out.println("do you want to remove another items ?? (yes/no):");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            } while (flag);
+
+        } else {
+            System.out.println("");
+        }
+        
     }
 
 

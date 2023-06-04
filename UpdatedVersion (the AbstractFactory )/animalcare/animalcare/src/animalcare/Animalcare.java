@@ -65,6 +65,7 @@ public class Animalcare {
 
                 } else if (choice.equalsIgnoreCase("no")) {
                     addToShoppingCart(user);
+                    removeFromShoppingCart(user);
                     flag = false;
                 }
 
@@ -97,6 +98,7 @@ public class Animalcare {
 
                 } else if (choice.equalsIgnoreCase("no")) {
                     addToShoppingCart(user);
+                    removeFromShoppingCart(user);
                     flag = false;
 
                 }
@@ -266,7 +268,7 @@ public class Animalcare {
             do {
                 System.out.println("wrtie the item you want to remove it: ");
                 String itemName = user.next();
-                cart.add(itemName);
+                cart.remove(itemName);
                 System.out.println("item has been removed from your cart succssfully :)");
 
                 System.out.println("do you want to remove another items ?? (yes/no):");
