@@ -313,7 +313,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void start() {
-              Scanner user = new Scanner(System.in);
+      Scanner user = new Scanner(System.in);
 
         System.out.println("-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-");
         System.out.println("\t\tWelcome to Animal Care Online Shop");
@@ -405,17 +405,8 @@ public class GUI extends javax.swing.JFrame {
             }
         } while (flag);
 
-        //displaying the items in the cart
-        System.out.println("------------------------");
-        System.out.println("--ITEMS IN THE CART--");
-        System.out.println("------------------------");
-        for (int i = 0; i < cart.size(); i++) {
-
-            System.out.println("-" + cart.get(i) + "\n");
-        }
-        System.out.println("");
-
         //-------------------------------------DECORATOR--------------------------------------//
+        if(!cart.isEmpty()){
         System.out.println(" Do you want to add a gift boxes? (yes/no) ");
         String gift = user.next();
         if (gift.equalsIgnoreCase("yes")) {
@@ -459,10 +450,11 @@ public class GUI extends javax.swing.JFrame {
             }
 
         }
+        
 
         if (!cart.isEmpty() || gift.equalsIgnoreCase("yes")) {
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
-            System.out.println("------------------check out------------------");
+            System.out.println("---------------------check out----------------------");
 
             System.out.println("Choose your payment method :"
                     + " 1-Credit "
@@ -498,6 +490,8 @@ public class GUI extends javax.swing.JFrame {
 
 //
         }
+        }
+        
         
        // after the payment operation we want to display a message to the cutomer
        // using static object thet we initialize it
@@ -547,7 +541,13 @@ public class GUI extends javax.swing.JFrame {
                 choice = user.next();
                 if (choice.equalsIgnoreCase("no")) {
                     flag = false;
+                    System.out.println("-------------------- CART -----------------------");
+                    for (int i = 0; i < cart.size(); i++) {
+                        System.out.println("-" + cart.get(i) + "\n");
+                    }
+                    System.out.println("");
                 }
+                
 
             } while (flag);
 
@@ -557,14 +557,13 @@ public class GUI extends javax.swing.JFrame {
 
     }
     public static void removeFromShoppingCart(Scanner user) {
-        boolean flag = true;
-
-        System.out.println("-------------------");
         System.out.println("Do you want to remove itmes from the cart?? (yes/no)");
         String choice = user.next();
         System.out.println("-------------------");
         if (choice.equalsIgnoreCase("yes")) {
-            do {
+            if (cart.isEmpty()){
+                System.out.println("Your cart is Empty!!");
+            }else{
                 System.out.println("wrtie the item you want to remove it: ");
                 String itemName = user.next();
                 cart.remove(itemName);
@@ -573,16 +572,16 @@ public class GUI extends javax.swing.JFrame {
                 System.out.println("do you want to remove another items ?? (yes/no):");
                 choice = user.next();
                 if (choice.equalsIgnoreCase("no")) {
-                    flag = false;
+                    System.out.println("-------------------- CART -----------------------");
+                    for (int i = 0; i < cart.size(); i++) {
+                        System.out.println("-" + cart.get(i) + "\n");
+                    }
+                    System.out.println("");
                 }
-
-            } while (flag);
-
-        } else {
-            System.out.println("");
-        }
-        
+                    System.out.println("");
+                }
     }
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

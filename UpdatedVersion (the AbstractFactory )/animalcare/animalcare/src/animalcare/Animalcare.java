@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import java.util.*;
 
-//                      MAIN TO RUN WITHOUT CLICKING THE GUI BUTTON (just for testing)
+// -------------------------   MAIN TO RUN WITHOUT CLICKING THE GUI BUTTON (just for testing)  -------------------------
 public class Animalcare {
      //-------------------------------------SINGLETON--------------------------------------//
     // we needed to initialize a static object from the class CustomerService 
