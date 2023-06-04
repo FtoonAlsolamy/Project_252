@@ -36,7 +36,7 @@ public class ItemsPrice {
 
     @Override
     public String toString() {
-        return desc +" "+ price + "$ " +" "+ sale + "\n";
+        return desc +" "+ price + "SR " +" "+ sale + "\n";
     }
 
 }

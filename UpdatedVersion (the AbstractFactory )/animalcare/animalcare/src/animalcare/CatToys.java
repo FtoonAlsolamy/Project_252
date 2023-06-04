@@ -49,11 +49,7 @@ public class CatToys extends ItemsPrice implements CatSupplies {
         if (userchoice.equalsIgnoreCase("yes")) {
 
             System.out.println("Choose sort options: \n1. sort from high to low   \n2. sort low to high ");
-            ItemsPrice[] Items = new ItemsPrice[4];
-            Items[0] = new ItemsPrice(10, "Feathers", "OnSale");
-            Items[1] = new ItemsPrice(65,"pink Scratcher", "NoSale");
-            Items[2] = new ItemsPrice(10, "Colorful Balls", "OnSale");
-            Items[3] = new ItemsPrice(12, "plush toys", "NoSale");
+            ItemsPrice[] Items = getCatToys();
 
             String usersort  = user.next();
             SortContext sc = new SortContext();

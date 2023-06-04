@@ -495,7 +495,7 @@ public class GUI extends javax.swing.JFrame {
 //
 
         //-------------------------------------SINGLETON--------------------------------------//
-        CallCenterSingleton number = CallCenterSingleton.getInstance();
+        CustomerService number = CustomerService.getInstance();
         number.showMessage();
     }
 

@@ -11,24 +11,31 @@ import java.util.List;
 public class ShoppingCart {
       List<ItemsPrice> items;
       List<String> itemsDes;
-	
+	ShoppingCart cart;
 	public ShoppingCart(){
 		
                 this.itemsDes=new ArrayList<String>();
 	}
-	
-	public void addItem(String itemsDes){
-		;
-                this.itemsDes.add(itemsDes);
-                System.out.println("");
-                System.out.println("@item has been added to your cart succssfully@\n ");
-	}
+        
+public void compareAndAddItem(String userItem, ItemsPrice[] availableItems) {
+    for (ItemsPrice item : availableItems) {
+        if (item.getDesc().equalsIgnoreCase(userItem)) {
+            cart.addItem(item);
+            return;
+        }
+    }
+    System.out.println("Item not found: " + userItem);
+}
+   public void addItem(ItemsPrice item) {
+    items.add(item);
+    System.out.println("Item added to your cart successfully: " + item.getDesc());
+}
         
         public void removeItem(String itemsDes){
 		
                 this.itemsDes.remove(itemsDes);
                 System.out.println("");
-                 System.out.println("@item has been removed from your cart succssfully@\n ");
+                 System.out.println("item has been removed from your cart succssfully@\n ");
 	}
 	
 	public int calculateTotal(){

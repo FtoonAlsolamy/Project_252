@@ -53,11 +53,7 @@ public class DogAccessories extends ItemsPrice implements DogSupplies{
         if (userchoice.equalsIgnoreCase("yes")) {
 
             System.out.println("Choose sort options: \n1. sort from high to low   \n2. sort low to high ");
-            ItemsPrice[] Items = new ItemsPrice[4];
-            Items[0] = new ItemsPrice(10, "Leashes", "OnSale");
-            Items[1] = new ItemsPrice(25, "Colorful Bowls", "NoSale");
-            Items[2] = new ItemsPrice(45, "Collar with Tag", "OnSale");
-            Items[3] = new ItemsPrice(7, "poo bags", "NoSale");
+            ItemsPrice[] Items = getDogAccessories();
 
             String usersort  = user.next();
             SortContext sc = new SortContext();

@@ -50,11 +50,7 @@ public class CatMedicine extends ItemsPrice implements CatSupplies {
         if (userchoice.equalsIgnoreCase("yes")) {
 
             System.out.println("Choose sort options: \n1. sort from high to low   \n2. sort low to high ");
-            ItemsPrice[] Items = new ItemsPrice[4];
-            Items[0] = new ItemsPrice(60, "Amoxicillin", "OnSale");
-            Items[1] = new ItemsPrice(59,"Metronidazole", "NoSale");
-            Items[2] = new ItemsPrice(77, "Methimazole", "OnSale");
-            Items[3] = new ItemsPrice(150, "Pimobendan", "NoSale");
+            ItemsPrice[] Items = getCatMedicine();
 
             String usersort  = user.next();
             SortContext sc = new SortContext();

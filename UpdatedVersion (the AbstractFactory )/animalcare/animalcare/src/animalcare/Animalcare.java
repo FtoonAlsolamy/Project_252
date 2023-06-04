@@ -31,7 +31,7 @@ public class Animalcare {
             //-------------------------------------ABSTRACT FACTORY WITH STRATGEY --------------------------------------//
 //        calling the type of factory the user want to display (type of category of the supplies)
             SuppliesAbstractFactory SuppliesFactoryType = SuppliesFactoryProducer.getFactorySupplies(userCategoryChoice);
-
+               
             if (userCategoryChoice == 1) {
                 CatSuppliesMenu();
                 String userSectionChoiceC = user.next();
@@ -194,7 +194,7 @@ public class Animalcare {
 //
 
         //-------------------------------------SINGLETON--------------------------------------//
-        CallCenterSingleton number = CallCenterSingleton.getInstance();
+        CustomerService number = CustomerService.getInstance();
         number.showMessage();
     }
 
@@ -212,12 +212,16 @@ public class Animalcare {
         System.out.println("\t-CAT SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
+         CustomerService customerService = CustomerService.getInstance();
+         customerService.showMessage();
     }
 
     public static void DogSuppliesMenu() {
         System.out.println("\t-DOG SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
+        CustomerService customerService = CustomerService.getInstance();
+         customerService.showMessage();
     }
 
     public static void addToShoppingCart(Scanner user) {

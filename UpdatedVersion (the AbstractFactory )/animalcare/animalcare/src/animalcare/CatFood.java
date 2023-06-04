@@ -51,12 +51,7 @@ public class CatFood extends ItemsPrice  implements CatSupplies{
         if (userchoice.equalsIgnoreCase("yes")) {
 
             System.out.println("Choose sort options: \n1. sort from high to low   \n2. sort low to high ");
-            ItemsPrice[] Items = new ItemsPrice[4];
-            Items[0] = new ItemsPrice(5, "GimCat (chicken and carrot flavor wet food)", "OnSale");
-            Items[1] = new ItemsPrice(65, "Nutram for kiitens (dry food)", "NoSale");
-            Items[2] = new ItemsPrice(29, "Burgess (scottish salmon dry food)", "OnSale");
-            Items[3] = new ItemsPrice(10, "Vitakraft (fish flavor wet food)", "NoSale");
-
+            ItemsPrice[] Items = getCatFood();
             String usersort  = user.next();
             SortContext sc = new SortContext();
            

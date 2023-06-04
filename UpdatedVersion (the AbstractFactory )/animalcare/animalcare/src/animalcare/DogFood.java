@@ -52,11 +52,7 @@ public class DogFood extends ItemsPrice implements DogSupplies{
         if (userchoice.equalsIgnoreCase("yes")) {
 
             System.out.println("Choose sort options: \n1. sort from high to low   \n2. sort low to high ");
-            ItemsPrice[] Items = new ItemsPrice[4];
-            Items[0] = new ItemsPrice(20, "GimDog (chicken and lamb dry food)", "OnSale");
-            Items[1] = new ItemsPrice(25, "Nutram for puppies (dry food)", "NoSale");
-            Items[2] = new ItemsPrice(45, "Burgess (chicken dry food)", "OnSale");
-            Items[3] = new ItemsPrice(60, "Scheser (Tuna wet food)", "NoSale");
+            ItemsPrice[] Items = getDogFood();
 
             String usersort  = user.next();
             SortContext sc = new SortContext();

@@ -11,24 +11,24 @@ import java.util.ArrayList;
  *
  * @author AlReffaie
  */
-public class CallCenterSingleton {
+public class CustomerService {
 
     // this is a singleton desgin pattern 
-    private static CallCenterSingleton instance = null;
+    private static CustomerService instance = null;
 
-    private CallCenterSingleton() {
+    private CustomerService() {
 
     }
 
-    public static CallCenterSingleton getInstance() {
+    public static CustomerService getInstance() {
         if (instance == null) {
-            instance = new CallCenterSingleton();
+            instance = new CustomerService();
         }
         return instance;
     }
     
     public void showMessage(){
-        System.out.println("for more help contact our call center at : 20019001");
+        System.out.println("For help contact us via chat, email, or phone.");
         
         
     }
