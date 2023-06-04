@@ -109,7 +109,6 @@ public class Animalcare {
             System.out.println("-" + cart.get(i) + "\n");
         }
         System.out.println("");
-        
 
         //-------------------------------------DECORATOR--------------------------------------//
         System.out.println(" Do you want to add a gift boxes? (yes/no) ");
@@ -156,43 +155,44 @@ public class Animalcare {
 
         }
 
-//
+        if (!cart.isEmpty() || gift.equalsIgnoreCase("yes")) {
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
-        System.out.println("------------------check out------------------");
+            System.out.println("------------------check out------------------");
 
-        System.out.println("Choose your payment method :"
-                + " 1-Credit "
-                + " 2-Cash "
-                + " 3-Qitaf ");
+            System.out.println("Choose your payment method :"
+                    + " 1-Credit "
+                    + " 2-Cash "
+                    + " 3-Qitaf ");
 
-        int payment = user.nextInt();
-        paymentFactory anyType = new paymentFactory();
-        if (payment == 1) {
-            //declaring the paying method to the user 
-            PaymentType process2 = anyType.userPay("credit");
-            process2.pay();
-            // checking the payment method (making sure of the credit card info)            
-            Payment paymentChecking = new ProxyPayment(payment);
+            int payment = user.nextInt();
+            paymentFactory anyType = new paymentFactory();
+            if (payment == 1) {
+                //declaring the paying method to the user 
+                PaymentType process2 = anyType.userPay("credit");
+                process2.pay();
+                // checking the payment method (making sure of the credit card info)            
+                Payment paymentChecking = new ProxyPayment(payment);
 
-        } else if (payment == 2) {
-            //declaring the paying method to the user 
-            PaymentType process3 = anyType.userPay("cash");
-            process3.pay();
-            // checking the payment method               
-            Payment paymentChecking = new ProxyPayment(payment);
+            } else if (payment == 2) {
+                //declaring the paying method to the user 
+                PaymentType process3 = anyType.userPay("cash");
+                process3.pay();
+                // checking the payment method               
+                Payment paymentChecking = new ProxyPayment(payment);
 
-        } else if (payment == 3) {
-            //declaring the paying method to the user 
-            PaymentType process1 = anyType.userPay("qitaf");
-            process1.pay();
-            // checking the payment method (making sure of the qitaf info)            
-            Payment paymentChecking = new ProxyPayment(payment);
+            } else if (payment == 3) {
+                //declaring the paying method to the user 
+                PaymentType process1 = anyType.userPay("qitaf");
+                process1.pay();
+                // checking the payment method (making sure of the qitaf info)            
+                Payment paymentChecking = new ProxyPayment(payment);
 
-        } else {
-            System.out.println("please select again");
-        }
+            } else {
+                System.out.println("please select again");
+            }
+
 //
-
+        }
         //-------------------------------------SINGLETON--------------------------------------//
         CustomerService number = CustomerService.getInstance();
         number.showMessage();

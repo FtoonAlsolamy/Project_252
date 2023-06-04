@@ -30,13 +30,13 @@ public class ProxyPayment implements Payment {
 
         UserInfo();
 
-        if (paymentMethod == 1 || paymentMethod == 3) {
-            //getting the identity of the real credit of qitaf info 
+        if (paymentMethod == 1) {
+            //getting the identity of the real credit info   
             realPayment = new RealPayment();
         } 
-        else if (paymentMethod == 2) {
+        else if (paymentMethod == 2 || paymentMethod == 3) {
             System.out.println("\nYour order placed successfully!"
-                             + "\nThank you for choosing AnimalCare\n");
+                             +"\nThank you for choosing AnimalCare\n");
         }
 
     }
