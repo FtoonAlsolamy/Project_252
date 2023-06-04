@@ -105,18 +105,19 @@ public class Animalcare {
 
             }
         } while (flag);
-
-        //displaying the items in the cart
-        System.out.println("------------------------");
-        System.out.println("--ITEMS IN THE CART--");
-        System.out.println("------------------------");
-        for (int i = 0; i < cart.size(); i++) {
-
-            System.out.println("-" + cart.get(i) + "\n");
-        }
-        System.out.println("");
+//        if(cart.isEmpty()){
+//            System.out.println("");
+//        }else{
+//        //displaying the items in the cart
+//        System.out.println("-------------------- CART -----------------------");
+//        for (int i = 0; i < cart.size(); i++) {
+//        System.out.println("-" + cart.get(i) + "\n");
+//        }
+//        System.out.println("");
+//        }
 
         //-------------------------------------DECORATOR--------------------------------------//
+        if(!cart.isEmpty()){
         System.out.println(" Do you want to add a gift boxes? (yes/no) ");
         String gift = user.next();
         if (gift.equalsIgnoreCase("yes")) {
@@ -160,10 +161,11 @@ public class Animalcare {
             }
 
         }
+        
 
         if (!cart.isEmpty() || gift.equalsIgnoreCase("yes")) {
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
-            System.out.println("------------------check out------------------");
+            System.out.println("---------------------check out----------------------");
 
             System.out.println("Choose your payment method :"
                     + " 1-Credit "
@@ -199,6 +201,8 @@ public class Animalcare {
 
 //
         }
+        }
+        
         
        // after the payment operation we want to display a message to the cutomer
        // using static object thet we initialize it
@@ -248,7 +252,13 @@ public class Animalcare {
                 choice = user.next();
                 if (choice.equalsIgnoreCase("no")) {
                     flag = false;
+                    System.out.println("-------------------- CART -----------------------");
+                    for (int i = 0; i < cart.size(); i++) {
+                        System.out.println("-" + cart.get(i) + "\n");
+                    }
+                    System.out.println("");
                 }
+                
 
             } while (flag);
 
@@ -258,14 +268,13 @@ public class Animalcare {
 
     }
     public static void removeFromShoppingCart(Scanner user) {
-        boolean flag = true;
-
-        System.out.println("-------------------");
         System.out.println("Do you want to remove itmes from the cart?? (yes/no)");
         String choice = user.next();
         System.out.println("-------------------");
         if (choice.equalsIgnoreCase("yes")) {
-            do {
+            if (cart.isEmpty()){
+                System.out.println("Your cart is Empty!!");
+            }else{
                 System.out.println("wrtie the item you want to remove it: ");
                 String itemName = user.next();
                 cart.remove(itemName);
@@ -274,14 +283,15 @@ public class Animalcare {
                 System.out.println("do you want to remove another items ?? (yes/no):");
                 choice = user.next();
                 if (choice.equalsIgnoreCase("no")) {
-                    flag = false;
+                    System.out.println("-------------------- CART -----------------------");
+                    for (int i = 0; i < cart.size(); i++) {
+                        System.out.println("-" + cart.get(i) + "\n");
+                    }
+                    System.out.println("");
                 }
-
-            } while (flag);
-
-        } else {
-            System.out.println("");
-        }
-        
+                    System.out.println("");
+                }
     }
 }
+    }
+
