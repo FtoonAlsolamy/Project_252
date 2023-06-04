@@ -6,7 +6,7 @@ import java.util.*;
 
 //                      MAIN TO RUN WITHOUT CLICKING THE GUI BUTTON (just for testing)
 public class Animalcare {
-
+    static CustomerService customerService = CustomerService.getInstance();
     static ArrayList<String> cart = new ArrayList<String>();
 
     public static void main(String[] args) {
@@ -194,14 +194,15 @@ public class Animalcare {
 //
         }
         //-------------------------------------SINGLETON--------------------------------------//
-        CustomerService number = CustomerService.getInstance();
-        number.showMessage();
+       
+        customerService.showMessage();
     }
 
     //methods to display the menus
     public static int CategoryMenu(Scanner s) {
         System.out.println("please select the type of category to view it's menue (write the number of the category):\n"
                 + "1- Cat Supplies\n2- Dog Supplies ");
+              customerService.showMessage();
         s = new Scanner(System.in);
         int num = s.nextInt();
         return num;
@@ -212,16 +213,14 @@ public class Animalcare {
         System.out.println("\t-CAT SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
-         CustomerService customerService = CustomerService.getInstance();
-         customerService.showMessage();
+                  customerService.showMessage();
     }
 
     public static void DogSuppliesMenu() {
         System.out.println("\t-DOG SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
-        CustomerService customerService = CustomerService.getInstance();
-         customerService.showMessage();
+               customerService.showMessage();
     }
 
     public static void addToShoppingCart(Scanner user) {
