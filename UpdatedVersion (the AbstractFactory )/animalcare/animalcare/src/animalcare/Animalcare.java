@@ -6,7 +6,11 @@ import java.util.*;
 
 //                      MAIN TO RUN WITHOUT CLICKING THE GUI BUTTON (just for testing)
 public class Animalcare {
+     //-------------------------------------SINGLETON--------------------------------------//
+    // we needed to initialize a static object from the class CustomerService 
+    // because we want to use his method severl times
     static CustomerService customerService = CustomerService.getInstance();
+   // ----------------------------------------------------------------
     static ArrayList<String> cart = new ArrayList<String>();
 
     public static void main(String[] args) {
@@ -193,8 +197,9 @@ public class Animalcare {
 
 //
         }
-        //-------------------------------------SINGLETON--------------------------------------//
-       
+        
+       // after the payment operation we want to display a message to the cutomer
+       // using static object thet we initialize it
         customerService.showMessage();
     }
 
@@ -249,5 +254,32 @@ public class Animalcare {
             System.out.println("");
         }
 
+    }
+    public static void removeFromShoppingCart(Scanner user) {
+        boolean flag = true;
+
+        System.out.println("-------------------");
+        System.out.println("Do you want to remove itmes from the cart?? (yes/no)");
+        String choice = user.next();
+        System.out.println("-------------------");
+        if (choice.equalsIgnoreCase("yes")) {
+            do {
+                System.out.println("wrtie the item you want to remove it: ");
+                String itemName = user.next();
+                cart.add(itemName);
+                System.out.println("item has been removed from your cart succssfully :)");
+
+                System.out.println("do you want to remove another items ?? (yes/no):");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            } while (flag);
+
+        } else {
+            System.out.println("");
+        }
+        
     }
 }
