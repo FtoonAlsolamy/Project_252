@@ -105,16 +105,6 @@ public class Animalcare {
 
             }
         } while (flag);
-//        if(cart.isEmpty()){
-//            System.out.println("");
-//        }else{
-//        //displaying the items in the cart
-//        System.out.println("-------------------- CART -----------------------");
-//        for (int i = 0; i < cart.size(); i++) {
-//        System.out.println("-" + cart.get(i) + "\n");
-//        }
-//        System.out.println("");
-//        }
 
         //-------------------------------------DECORATOR--------------------------------------//
         if(!cart.isEmpty()){
