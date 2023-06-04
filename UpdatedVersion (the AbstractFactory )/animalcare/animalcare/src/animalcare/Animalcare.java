@@ -7,6 +7,8 @@ import java.util.*;
 //                      MAIN TO RUN WITHOUT CLICKING THE GUI BUTTON (just for testing)
 public class Animalcare {
 
+    static ArrayList<String> cart = new ArrayList<String>();
+
     public static void main(String[] args) {
         Scanner user = new Scanner(System.in);
 
@@ -98,6 +100,17 @@ public class Animalcare {
             }
         } while (flag);
 
+        //displaying the items in the cart
+        System.out.println("------------------------");
+        System.out.println("--ITEMS IN THE CART--");
+        System.out.println("------------------------");
+        for (int i = 0; i < cart.size(); i++) {
+
+            System.out.println("-" + cart.get(i) + "\n");
+        }
+        System.out.println("");
+        
+
         //-------------------------------------DECORATOR--------------------------------------//
         System.out.println(" Do you want to add a gift boxes? (yes/no) ");
         String gift = user.next();
@@ -142,8 +155,6 @@ public class Animalcare {
             }
 
         }
-        ShoppingCart DisplayItemsInCart = new ShoppingCart();
-        DisplayItemsInCart.displayInvoice();
 
 //
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
@@ -211,8 +222,7 @@ public class Animalcare {
 
     public static void addToShoppingCart(Scanner user) {
         boolean flag = true;
-        ShoppingCart items=new ShoppingCart();
-        
+
         System.out.println("-------------------");
         System.out.println("Do you want to add itmes into the cart?? (yes/no)");
         String choice = user.next();
@@ -220,8 +230,9 @@ public class Animalcare {
         if (choice.equalsIgnoreCase("yes")) {
             do {
                 System.out.println("wrtie the item you wish to add to cart: ");
-                String itemName=user.next();
-                items.addItem(itemName);
+                String itemName = user.next();
+                cart.add(itemName);
+                System.out.println("item has been added to your cart succssfully :)");
 
                 System.out.println("do you want to add more items to the cart?? (yes/no):");
                 choice = user.next();
@@ -231,6 +242,8 @@ public class Animalcare {
 
             } while (flag);
 
+        } else {
+            System.out.println("");
         }
 
     }

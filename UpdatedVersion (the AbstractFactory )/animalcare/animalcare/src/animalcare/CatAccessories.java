@@ -47,7 +47,7 @@ public class CatAccessories extends ItemsPrice implements CatSupplies{
     
     public void displayCatAccessories(){
         Scanner user = new Scanner(System.in);
-        System.out.println("Do you want to sort the Items ? ");
+        System.out.println("Do you want to sort the Items ? (yes/no) ");
         String userchoice = user.next();
         if (userchoice.equalsIgnoreCase("yes")) {
 

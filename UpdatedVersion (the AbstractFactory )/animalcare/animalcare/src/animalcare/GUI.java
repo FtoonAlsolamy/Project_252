@@ -6,6 +6,7 @@ import animalcare.AboutFactory;
 import animalcare.AboutProxy;
 import animalcare.AboutSingleton;
 import animalcare.AboutStrataegy;
+import static animalcare.Animalcare.cart;
 import animalcare.BlueRibbon;
 import animalcare.CatAccessories;
 import animalcare.CatBox;
@@ -272,7 +273,7 @@ public class GUI extends javax.swing.JFrame {
     private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
         // TODO add your handling code here:
         start();
-        
+
     }//GEN-LAST:event_StartButtonActionPerformed
 
     /**
@@ -361,7 +362,8 @@ public class GUI extends javax.swing.JFrame {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
-                    break;
+                    addToShoppingCart(user);
+                    flag = false;
                 }
 
             } else if (userCategoryChoice == 2) {
@@ -392,26 +394,38 @@ public class GUI extends javax.swing.JFrame {
                     userCategoryChoice = CategoryMenu(user);
 
                 } else if (choice.equalsIgnoreCase("no")) {
-                    break;
+                    addToShoppingCart(user);
+                    flag = false;
 
                 }
 
             }
         } while (flag);
 
+        //displaying the items in the cart
+        System.out.println("------------------------");
+        System.out.println("--ITEMS IN THE CART--");
+        System.out.println("------------------------");
+        for (int i = 0; i < cart.size(); i++) {
+
+            System.out.println("-" + cart.get(i) + "\n");
+        }
+        System.out.println("");
+
         //-------------------------------------DECORATOR--------------------------------------//
-        System.out.println(" Do you want to add gift boxes? (yes or no ) ");
+        System.out.println(" Do you want to add a gift boxes? (yes/no) ");
         String gift = user.next();
         if (gift.equalsIgnoreCase("yes")) {
             System.out.println(" Select which gift box you want? "
                     + "1- Dog box "
                     + "2- Cat box ");
             int giftSelection = user.nextInt();
+
             if (giftSelection == 1) {
-                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                System.out.println(" Do you want to add a ribbon ? (yes/no) ");
                 String giftRibbon = user.next();
                 if (giftRibbon.equalsIgnoreCase("yes")) {
-                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    System.out.println(" what color do you want? (1-blue/2-pink) ");
                     int giftRibbonColor = user.nextInt();
 
                     if (giftRibbonColor == 1) {
@@ -425,10 +439,10 @@ public class GUI extends javax.swing.JFrame {
 
             } else {
 
-                System.out.println(" Do you want to add ribbon ? (yes or no ) ");
+                System.out.println(" Do you want to add ribbon ? (yes/ no ) ");
                 String giftRibbon = user.next();
                 if (giftRibbon.equalsIgnoreCase("yes")) {
-                    System.out.println(" what color you want? (1-blue 2-pink) ");
+                    System.out.println(" what color you want? (1-blue/ 2-pink) ");
                     int giftRibbonColor = user.nextInt();
 
                     if (giftRibbonColor == 1) {
@@ -441,9 +455,8 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
 
-        } else {
-
         }
+
 //
 //          //-------------------------------------FACTORY & PROXY--------------------------------------//
         System.out.println("------------------check out------------------");
@@ -484,7 +497,6 @@ public class GUI extends javax.swing.JFrame {
         //-------------------------------------SINGLETON--------------------------------------//
         CallCenterSingleton number = CallCenterSingleton.getInstance();
         number.showMessage();
-
     }
 
     //methods to display the menus
@@ -507,6 +519,34 @@ public class GUI extends javax.swing.JFrame {
         System.out.println("\t-DOG SUPPLIES-\n");
         System.out.println("please select the type of section you want to view (write the name of the section):\n"
                 + "- Food\n- Accessories\n- Medicine\n- Toys ");
+    }
+
+    public static void addToShoppingCart(Scanner user) {
+        boolean flag = true;
+
+        System.out.println("-------------------");
+        System.out.println("Do you want to add itmes into the cart?? (yes/no)");
+        String choice = user.next();
+        System.out.println("-------------------");
+        if (choice.equalsIgnoreCase("yes")) {
+            do {
+                System.out.println("wrtie the item you wish to add to cart: ");
+                String itemName = user.next();
+                cart.add(itemName);
+                System.out.println("item has been added to your cart succssfully :)");
+
+                System.out.println("do you want to add more items to the cart?? (yes/no):");
+                choice = user.next();
+                if (choice.equalsIgnoreCase("no")) {
+                    flag = false;
+                }
+
+            } while (flag);
+
+        } else {
+            System.out.println("");
+        }
+
     }
 
 
